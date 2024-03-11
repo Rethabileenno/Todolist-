@@ -1,3 +1,4 @@
+// sorting functionality
 document.getElementById('sortTasks').addEventListener('click', function() {
     var list = document.getElementById('taskList');
     Array.from(list.getElementsByTagName("LI"))
@@ -6,7 +7,7 @@ document.getElementById('sortTasks').addEventListener('click', function() {
 });
 
 
-
+// add task functionality
 document.getElementById('addTask').addEventListener('click', function() {
     var value = document.getElementById('newTask').value;
     if (value) {
@@ -15,7 +16,7 @@ document.getElementById('addTask').addEventListener('click', function() {
         saveTasks();
     }
 });
-
+// clear all functionality
 document.getElementById('clearAll').addEventListener('click', function() {
     var list = document.getElementById('taskList');
     while (list.firstChild) {
@@ -24,6 +25,7 @@ document.getElementById('clearAll').addEventListener('click', function() {
     localStorage.removeItem('tasks');
 });
 
+// show completed tasks list functionality
 document.getElementById('showCompleted').addEventListener('click', function() {
     var list = document.getElementById('taskList');
     for (var i = 0; i < list.children.length; i++) {
@@ -36,6 +38,7 @@ document.getElementById('showCompleted').addEventListener('click', function() {
     }
 });
 
+// show uncompleted tasks list functionality
 document.getElementById('showUncompleted').addEventListener('click', function() {
     var list = document.getElementById('taskList');
     for (var i = 0; i < list.children.length; i++) {
@@ -48,7 +51,7 @@ document.getElementById('showUncompleted').addEventListener('click', function() 
     }
 });
 
-// ... rest of the JavaScript code ...
+// show all tasks list functionality
 function addTask(text) {
     var list = document.getElementById('taskList');
 
@@ -78,17 +81,19 @@ function addTask(text) {
     list.insertBefore(item, list.childNodes[0]);
 }
 
+// remove task functionality
 function removeTask(e) {
     var item = e.target.parentNode.parentNode;
     var parent = item.parentNode;
     parent.removeChild(item);
 }
 
+// complete task functionality
 function completeTask(e) {
     var item = e.target.parentNode.parentNode;
     item.classList.toggle('completed');
 }
-
+// save tasks functionality
 function saveTasks() {
     var tasks = [];
     for (var i = 0; i < taskList.children.length; i++) {
@@ -101,6 +106,7 @@ function saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
+// load tasks functionality
 function loadTasks() {
     if (localStorage.getItem('tasks')) {
         var tasks = JSON.parse(localStorage.getItem('tasks'));
