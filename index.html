@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo App</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #C2A27F;
+            font-family: Arial, sans-serif;
+        }
+
+     .container {
+           text-align: center;
+        } 
+
+        .completed {
+            text-decoration: line-through;
+        }
+        .button{
+            margin: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #C2A27F;
+            color: #000;
+            border: 1px solid #000;
+        }
+        ul#taskList {
+            background-color: #f9f9f9;
+    border-radius: 20%;
+    padding: 20px;
+    width: 500px;
+    /* height: 200px; */
+    overflow: auto;
+    margin: auto;
+    display: flex; /* Add this line */
+    flex-direction: column; /* Add this line */
+    justify-content: center; /* Add this line */
+    align-items: center; /* Add this line */
+}
+
+ul#taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 10px;
+}
+ul#taskList li div button {
+    border-radius: 80%;
+    padding: 5px 10px;
+    margin: 5px;
+    border: none;
+    background-color:  #C2A27F;
+    color: black;
+    cursor: pointer;
+
+}
+
+ul#taskList li div button:hover {
+    background-color: palevioletred;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Todo App</h1>
+        <input id="newTask" type="text" placeholder="New task"> 
+        <button id="addTask" class="button">Add Task</button><br>
+       
+        <button id="clearAll" class="button">Clear All</button>
+        <button id="sortTasks" class="button">Sort</button>
+        <button id="showCompleted" class="button">Show Completed</button>
+        <button id="showUncompleted" class="button">Show Uncompleted</button>
+        <br>
+        <br>
+        <ul id="taskList"></ul>
+    </div>
+    <script src="todo.js"></script>
+</body>
+</html>
